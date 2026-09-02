@@ -1,0 +1,15 @@
+---
+description: Default workspace and script paths for Data Operations work in this repo
+alwaysApply: true
+---
+
+# Data Operations Work Workspace
+
+- Root: `C:\Users\<USERNAME>\Projects\data-operations-workspace`
+- Start Data Operations sessions with `/data-ops-preflight` (skill: `data-ops-preflight`).
+- Scripts: `scripts/` — `data_ops_preflight.py`, `oracle_query.py`, `group_structure_pack.py`, `edit_tool_company_import_uploader.py`
+- SQL library: `sql/bk`, `sql/group`, `sql/legal`, `sql/sos`, `sql/proc`
+- Dated outputs: `work/YYYY-MM-DD/`
+- Automation: `automation/` (bankruptcy-unmatched-daily)
+- Skills live in `%USERPROFILE%\.agents\skills\` and are mirrored under `.cursor/skills/` for coworkers (data-ops, data-ops-preflight, entity-group-structure-workflow, group-structure-pack, google-alert-review, bankruptcy-unmatched-review, …)
+- Group-structure docs: `docs/group-structure/` (README + reference + examples)

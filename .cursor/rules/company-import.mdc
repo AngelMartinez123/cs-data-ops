@@ -1,0 +1,46 @@
+---
+description: Edit Tool company import create workflow (workbook fill + HTTP upload)
+alwaysApply: true
+---
+
+# Company Import Workflow
+
+Use for **create** candidates not already in Oracle. Pattern mirrors `det_import_uploader.py`.
+
+## Template
+
+- **Authoritative source:** `C:\Users\<USERNAME>\Downloads\COMPANY_IMPORT_SAMPLE (7).xlsx`
+- Preserve native Excel structure exactly (styles, `q` sheet, validations, OOXML metadata). Do **not** rebuild via openpyxl/pandas DataFrame — that strips formatting and Edit Tool may reject or mis-parse the file (Format Painter from sample `(7)` is the recovery path if format drifts).
+- Prefer `native-create-template` / `build_native_create_template.py` cloning rows from sample `(7)`.
+- Copy template, fill row 2+, clear sample values only; keep formatted blank cells.
+
+## Populate only these fields
+
+| Field | Rule |
+|---|---|
+| COMPANY_NAME | Exact legal name |
+| ADDRESS | Street or PO Box line |
+| CITY / STATE / ZIP | From SOS/source |
+| ADDRESS_TYPE | `S` street, `P` PO Box, `U` if unclear |
+| BUSINESS_TYPE | `L` LLC, `I` inc, `C` corp, `U` if unclear |
+| LOCATION_TYPE | `1` for HQ/legal entity |
+
+**Do not populate `ESTABLISH_DATE`** (or other optional sample columns) unless <OPERATOR> explicitly asks.
+
+## Upload
+
+- Script: `scripts/edit_tool_company_import_uploader.py`
+- Page: `http://<EDIT_TOOL_HOST>/web/EditToolLive/Company/Import`
+- POST fields: `ImportFile` (xlsx), `Email` (required)
+- Auth: Chrome CDP cookies (`EDIT_TOOL_CDP_URL`, default `http://127.0.0.1:9222`)
+- Grid poll: `/web/EditToolLive/Company/ImportedCompaniesGrid`
+- Success UI text: **Import started. You will receive an email upon completion.**
+
+```powershell
+python scripts\edit_tool_company_import_uploader.py C:\path\company_import.xlsx --submit --match "COMPANY NAME" --poll-oracle
+```
+
+## After SAFE returns
+
+- Write SAFE back to review workbook.
+- Group-structure adds use `SET_COMPANY_RELATION` / move SQL only after <OPERATOR> approves.

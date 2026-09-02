@@ -1,0 +1,53 @@
+# Local credentials and configuration
+.env
+.env.*
+!.env.example
+auth.json
+mcp.json
+credentials*
+secrets/
+*.pem
+*.key
+*.pfx
+*.clixml
+automation/file-transfer/FileTransfer.Daily.config.psd1
+automation/file-transfer/FileTransfer.WinSCP.config.psd1
+
+# Operational inputs, outputs, and case-level evidence
+work/
+outputs/
+attachments/
+sessions/
+logs/
+state/
+automation/state/
+*.csv
+*.tsv
+*.xlsx
+*.xlsm
+*.xlsb
+*.pdf
+*.zip
+*.ndjson
+*.jsonl
+
+# Local databases and generated artifacts
+*.sqlite
+*.sqlite-*
+*.db
+*.log
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editor and OS state
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.tmp
+tmp/

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Operations Data Ops"
+  short_description: "Data Operations Oracle, Redshift, Edit Tool, migration, and data-quality workflows."
+  default_prompt: "Use the Data Operations Data Ops skill for this Oracle, Redshift, Edit Tool, migration, legal filings, SOS, officers, bankruptcy, or group-structure task."

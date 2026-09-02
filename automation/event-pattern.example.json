@@ -1,0 +1,8 @@
+{
+  "source": ["aws.glue"],
+  "detail-type": ["Glue Crawler State Change"],
+  "detail": {
+    "crawlerName": ["bankruptcy_verification_crawler"],
+    "state": ["Succeeded"]
+  }
+}
