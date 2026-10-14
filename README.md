@@ -5,6 +5,29 @@ tests, and agent guidance. The repository is designed for use from both Cursor
 and Codex while keeping operational data, company infrastructure, and credentials
 outside Git.
 
+## Featured examples
+
+- [Explainable entity resolution](entity_resolution/README.md): offline name and
+  address normalization, evidence scoring, identifier conflict checks, and
+  branch review recommendations, with synthetic tests.
+- [Native company template builder](docs/native-company-template.md): populate
+  an XLSX import grid while preserving untouched package parts and text values.
+- [Validated cloud handoff](docs/validated-cloud-handoff.md): a design case study
+  covering batch provenance, duplicate delivery, output checks, and completion
+  evidence.
+
+See the [October portfolio update](docs/portfolio-update-2026-10.md) for the
+scope of work added from the August 14–October 14 review window.
+
+Run the offline tests from the repository root:
+
+```powershell
+python -m unittest discover -s tests -v
+```
+
+The existing service-client tests require `requests`; the new entity and native
+template examples use only the Python standard library.
+
 ## Repository contents
 
 - `automation/`: repeatable orchestration and scheduled-job source.

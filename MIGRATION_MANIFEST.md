@@ -30,3 +30,10 @@
 - Replaced live FileTransfer AWS/S3/SFTP configuration with example placeholders.
 
 The published version uses generic service, schema, package, and workflow names.
+
+## October 14 portfolio update
+
+Added an offline entity-resolution extract, a generic native company-template
+builder, synthetic tests, and a cloud-handoff design case study. See
+`docs/portfolio-update-2026-10.md` for the comparison window and exclusions.
+No operational inputs or production deployment configuration were included.
